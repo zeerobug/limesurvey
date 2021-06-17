@@ -8,6 +8,8 @@ RUN apt-get update -q -y && \
 	php5enmod imap
 
 RUN chown www-data:www-data /var/lib/php5
+# Change in php.ini
+RUN echo "max_input_vars = 10000" >> /etc/php5/apache2/php.ini
 
 ADD apache_default /etc/apache2/sites-available/000-default.conf
 ADD start.sh /
@@ -37,8 +39,11 @@ RUN versions=(${LIMESURVEY_VERSION//+/ }) && \
     version=${versions[1]} && \
     sed -r -i "s/(config\['buildnumber'\] = ')(.*)('\;$)/\1${version}\3/g" /app/application/config/version.php
 
+
+
 VOLUME /app/upload
 VOLUME /app/plugins
 
 EXPOSE 80 3306
 CMD ["/start.sh"]
+    

@@ -1,11 +1,11 @@
 ---
 application:
-  name: "geurs21"
-  project: "first project"
-  organization: "QoveryCommunity"
+  name: 'geurs21'
+  project: 'first project'
+  organization: 'QoveryCommunity'
 routers:
-- name: "main-geurs21"
-  routes:
-  - application_name: "geurs21"
-    paths:
-    - "/*"
+  - name: 'main-geurs21'
+    routes:
+      - application_name: 'geurs21'
+        paths:
+          - '/app'
