@@ -4,6 +4,7 @@ application:
   project: 'first project'
   publicly_accessible: true
   organization: 'QoveryCommunity'
+  start_timeout: 5m
 routers:
   - name: 'main-geurs21'
     routes:
